@@ -44,7 +44,7 @@ public class CompanyInfoDAO {
 		String companyName = dbObject.get("Name").toString();
 		CompanyInfo companyInfo = new CompanyInfo(companySymbol);
 		companyInfo.setCompanyName(companyName);
-	//	System.out.println(companySymbol);
+		System.out.println(companySymbol);
 		return companyInfo;
 	}
 }
