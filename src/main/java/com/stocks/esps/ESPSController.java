@@ -7,11 +7,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.stocks.esps.models.CompanyInfoViewModel;
+import com.stocks.esps.models.CompanyStockQuotesViewModel;
 
 
 @Controller
@@ -27,10 +29,19 @@ public class ESPSController {
 		
 		ESPSApplication app = beanFactory.getBean(ESPSApplication.class);
  		
- 		CompanyInfoViewModel model = app.process();
+ 		CompanyInfoViewModel model = app.getCompaniesInfo();
  		modelAndView.addObject("model",model);
  		
- 		
+		return modelAndView;
+	}
+	
+	@RequestMapping(value={"/company/{companySymbol}"} , method = RequestMethod.GET)
+	public ModelAndView handleCompanyRequest(@PathVariable("companySymbol") String companySymbol){
+		companySymbol = companySymbol.toUpperCase();
+		ModelAndView modelAndView = new ModelAndView("companyinfo");
+		ESPSApplication app = beanFactory.getBean(ESPSApplication.class);
+		CompanyStockQuotesViewModel model = app.getCompanyHistory(companySymbol);
+		modelAndView.addObject("model", model);
 		return modelAndView;
 	}
 
