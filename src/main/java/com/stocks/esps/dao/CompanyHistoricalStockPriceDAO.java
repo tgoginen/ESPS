@@ -51,8 +51,7 @@ public class CompanyHistoricalStockPriceDAO {
 	public List<CompanyStockPrice> getAllHistoricalQuotes(){
 		List<CompanyStockPrice> stockPriceHistory = new ArrayList<CompanyStockPrice>();
 		
-		
-		DBCursor stockPriceCursor = dbCollection.find();
+		DBCursor stockPriceCursor = dbCollection.find().sort(new BasicDBObject("datekeyField",-1));
 		
 		while( stockPriceCursor.hasNext()){
 			DBObject stockEntry = stockPriceCursor.next();
