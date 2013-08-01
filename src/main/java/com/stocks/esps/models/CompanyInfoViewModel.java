@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 @Component("CompanyInfoViewModel")
 public class CompanyInfoViewModel {
 
-	private String hello = "hssllo";
 	private List<CompanyInfo> companyInfoList = new ArrayList<CompanyInfo>();
 
 	public List<CompanyInfo> getCompanyInfoList() {
@@ -19,12 +18,6 @@ public class CompanyInfoViewModel {
 		this.companyInfoList = companyInfoList;
 	}
 
-	public String getHello() {
-		return hello;
-	}
 
-	public void setHello(String hello) {
-		this.hello = hello;
-	}
 	
 }

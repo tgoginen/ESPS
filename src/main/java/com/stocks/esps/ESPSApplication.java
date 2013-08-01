@@ -30,7 +30,6 @@ public class ESPSApplication {
 		CompanyInfoDAO companyInfoDAO  = new CompanyInfoDAO();
 		List<CompanyInfo> companiesList = companyInfoDAO.getAllCompaniesInfo();
 		viewModel.setCompanyInfoList(companiesList);
-		viewModel.setHello("bhaaai");
 		
 		return viewModel;
 

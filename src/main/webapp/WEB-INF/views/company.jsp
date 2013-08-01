@@ -20,13 +20,8 @@
 				var="item">
 			<h2> ${item.companySymbol }   ${item.getCompanyName() }</h2>
 			</c:forEach>
-		<%-- 	<c:forEach
-				items="${model.getCompanyInfoList()}"
-				var="item">
-			<h2> ${items.getCompanySymbol() }</h2>
-			</c:forEach> --%>
 		</c:when>
-	</c:choose>
+</c:choose>
 	
 
 </body>

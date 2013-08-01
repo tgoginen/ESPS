@@ -28,7 +28,6 @@ public class ESPSController {
 		
 		
 		ESPSApplication app = beanFactory.getBean(ESPSApplication.class);
- 		
  		CompanyInfoViewModel model = app.getCompaniesInfo();
  		modelAndView.addObject("model",model);
  		
@@ -45,7 +44,16 @@ public class ESPSController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value="/companies", method = RequestMethod.GET)
+	@RequestMapping(value={"/companies"} , method = RequestMethod.GET)
+	public ModelAndView handleCompanyList(){
+		ModelAndView modelAndView = new ModelAndView("selectcompany");
+		ESPSApplication app = beanFactory.getBean(ESPSApplication.class);
+ 		CompanyInfoViewModel model = app.getCompaniesInfo();
+ 		modelAndView.addObject("model",model);
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/companieslist", method = RequestMethod.GET)
 	public String welcome(ModelMap model) {
  
 	//	model.addAttribute("message", "Maven Web Project + Spring 3 MVC - welcome()");
